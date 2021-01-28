@@ -29,10 +29,20 @@
       "prettier/prettier": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/camelcase": "off",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "import/prefer-default-export": "off",
-      "camelcase": "off",
-      "@typescript-eslint/ban-types": "off",
+      "no-unused-expressions": "off",
+      "import/no-duplicates": "off",
+      "@typescript-eslint/no-unused-expressions": 2,
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ],
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -40,7 +50,7 @@
           "ts": "never",
           "tsx": "never"
         }
-     ]
+      ]
     },
     "settings": {
       "import/resolver": {
