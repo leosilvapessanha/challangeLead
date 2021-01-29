@@ -9,6 +9,8 @@ export default createGlobalStyle`
   }
 
   body{
+    width:100%;
+    height:100%;
     background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
   }
@@ -21,5 +23,9 @@ export default createGlobalStyle`
     max-width: 342px;
     margin: 0 auto;
     padding: 40px 20px;
+  }
+
+  button{
+    cursor: pointer;
   }
 `;
