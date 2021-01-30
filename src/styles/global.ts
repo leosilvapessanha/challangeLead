@@ -20,8 +20,9 @@ export default createGlobalStyle`
   }
 
   #root{
-    max-width: 342px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    min-width: 342px;
     padding: 40px 20px;
   }
 

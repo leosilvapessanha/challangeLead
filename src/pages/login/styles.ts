@@ -4,7 +4,16 @@ import { shade } from 'polished';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  /* background-color: red; */
 `;
 
 export const Container = styled.div`
@@ -15,7 +24,7 @@ export const Container = styled.div`
   height: 423px;
   align-items: center;
   box-shadow: 0px 0.1px 0.1px 0.1px black;
-  margin: auto;
+  margin: 0 auto;
   flex-direction: column;
 
   img {
