@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Form = styled.form`
   display: flex;
@@ -14,7 +15,7 @@ export const Container = styled.div`
   height: 423px;
   align-items: center;
   box-shadow: 0px 0.1px 0.1px 0.1px black;
-  margin: 0 auto;
+  margin: auto;
   flex-direction: column;
 
   img {
@@ -26,8 +27,9 @@ export const Container = styled.div`
   }
 
   p {
-    font: 11px, Roboto, sans-serif;
+    font: 11px Roboto, sans-serif;
     color: #00dcb7;
+    margin-bottom: 4px;
   }
 
   input {
@@ -36,7 +38,6 @@ export const Container = styled.div`
     border-width: 0 0 2px 0;
     border-color: #00dcb7;
     margin: 0px auto 27px auto;
-    font: 14px, Roboto, sans-serif;
     word-break: break-all;
 
     & + input {
@@ -51,7 +52,14 @@ export const Container = styled.div`
     margin: 0 auto;
     border: 1px solid #00dcb7;
     background-color: white;
-    font: 14px, Roboto, sans-serif;
+    font: 14px Roboto, sans-serif;
     color: #00dcb7;
+    transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+  }
+
+  button:hover {
+    background: ${shade(0.2, '#00DCB7')};
+    color: ${shade(0.2, '#27233a')};
+    border-color: ${shade(0.2, '#27233a')};
   }
 `;
