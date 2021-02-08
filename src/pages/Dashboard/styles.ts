@@ -21,6 +21,6 @@ export const Container = styled.div`
   img {
     width: 160px;
     height: 105px;
-    background-color: red;
+    color: #707070;
   }
 `;

@@ -1,16 +1,15 @@
 import React from 'react';
-
 import logo from '../../assets/logo.svg';
-
-import { Title, Container } from './styles';
+// import api from '../../services/api';
+import * as S from './styles';
 
 const Dashboard: React.FC = () => {
   return (
     <>
-      <Container>
+      <S.Container>
         <img src={logo} alt="lead up" />
-        <Title>Artigos</Title>
-      </Container>
+        <S.Title>Artigos</S.Title>
+      </S.Container>
     </>
   );
 };

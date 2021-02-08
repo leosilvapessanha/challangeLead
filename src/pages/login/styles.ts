@@ -41,20 +41,7 @@ export const Container = styled.div`
     margin-bottom: 4px;
   }
 
-  input {
-    height: 34px;
-    flex: 1;
-    border-width: 0 0 2px 0;
-    border-color: #00dcb7;
-    margin: 0px auto 27px auto;
-    word-break: break-all;
-
-    & + input {
-      margin-bottom: 44px;
-    }
-  }
-
-  button {
+  /* button {
     width: 114px;
     height: 43px;
     justify-content: center;
@@ -70,5 +57,21 @@ export const Container = styled.div`
     background: ${shade(0.2, '#00DCB7')};
     color: ${shade(0.2, '#27233a')};
     border-color: ${shade(0.2, '#27233a')};
+  } */
+
+  > a {
+    color: #5f84bd;
+    margin-top: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  > a:hover {
+    color: ${shade(0.2, '#ff9000')};
   }
 `;

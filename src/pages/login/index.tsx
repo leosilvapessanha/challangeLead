@@ -1,7 +1,11 @@
 import React, { useState, FormEvent } from 'react';
+import { FiLogIn, FiLock, FiMail } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
-import { Form, Container, MainContainer } from './styles';
+import Input from '../../components/input';
+import Button from '../../components/button';
+// import api from '../../services/api';
+import * as S from './styles';
 
 const LogIn: React.FC = () => {
   const [mail, setMail] = useState('');
@@ -14,23 +18,34 @@ const LogIn: React.FC = () => {
   }
   return (
     <>
-      <MainContainer>
-        <Container>
+      <S.MainContainer>
+        <S.Container>
           <img src={logo} alt="lead up" />
-          <Form onSubmit={handdleMail}>
+          <S.Form onSubmit={handdleMail}>
             <p>E-mail</p>
-            <input
+            <Input
+              name="Mail"
               value={mail}
+              icon={FiMail}
               onChange={e => setMail(e.target.value)}
               type="text"
               placeholder="E-mail"
             />
             <p>Senha</p>
-            <input type="text" placeholder="Senha" />
-            <button type="submit">Entrar</button>
-          </Form>
-        </Container>
-      </MainContainer>
+            <Input
+              name="Password"
+              type="text"
+              icon={FiLock}
+              placeholder="Senha"
+            />
+            <Button>Entrar</Button>
+          </S.Form>
+          <a href="login">
+            <FiLogIn />
+            Criar conta
+          </a>
+        </S.Container>
+      </S.MainContainer>
     </>
   );
 };
