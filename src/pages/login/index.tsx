@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { FiLogIn, FiLock, FiMail } from 'react-icons/fi';
+import { Form } from '@unform/web';
 
 import logo from '../../assets/logo.svg';
 import Input from '../../components/input';
@@ -21,7 +22,7 @@ const LogIn: React.FC = () => {
       <S.MainContainer>
         <S.Container>
           <img src={logo} alt="lead up" />
-          <S.Form onSubmit={handdleMail}>
+          <Form onSubmit={handdleMail}>
             <p>E-mail</p>
             <Input
               name="Mail"
@@ -39,8 +40,8 @@ const LogIn: React.FC = () => {
               placeholder="Senha"
             />
             <Button>Entrar</Button>
-          </S.Form>
-          <a href="login">
+          </Form>
+          <a href="SignIn">
             <FiLogIn />
             Criar conta
           </a>
