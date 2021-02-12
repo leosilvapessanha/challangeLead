@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useContext } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FiLogIn, FiLock, FiMail } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -8,7 +8,7 @@ import logo from '../../assets/logo.svg';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import getValidation from '../../utils/getValidations';
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 // import api from '../../services/api';
 import * as S from './styles';
 
@@ -19,8 +19,7 @@ interface LogInCredentials {
 
 const LogIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { user, signIn } = useContext(AuthContext);
-  console.log(user);
+  const { signIn } = useAuth();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   const handdleSubmit = useCallback(

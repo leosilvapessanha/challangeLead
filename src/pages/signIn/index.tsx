@@ -6,7 +6,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
 import logo from '../../assets/logo.svg';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../hooks/AuthContext';
 
 import Input from '../../components/input';
 import Button from '../../components/button';
