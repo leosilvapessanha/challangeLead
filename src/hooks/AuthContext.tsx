@@ -16,6 +16,7 @@ interface AuthContextProps {
   // eslint-disable-next-line @typescript-eslint/ban-types
   user: object;
   signIn(credentials: SignCredentials): Promise<void>;
+  logOut(): void;
 }
 
 export const AuthContext = createContext<AuthContextProps>(
@@ -47,9 +48,15 @@ export const AuthProvider: React.FC = ({ children }) => {
     setData({ token, user });
   }, []);
 
+  const logOut = useCallback(() => {
+    localStorage.RemoveItem('@lead:token');
+    localStorage.RemoveItem('@lead:user');
+    setData({} as AuthState);
+  }, []);
+
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, logOut }}>
       {children}
     </AuthContext.Provider>
   );
