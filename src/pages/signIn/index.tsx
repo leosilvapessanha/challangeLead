@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
     async (data: SignCredentials) => {
       try {
         formRef.current?.setErrors({});
-        console.log(data);
+        // console.log(data);
         const schema = Yup.object().shape({
           Mail: Yup.string()
             .required('E-mail obrigatório')
@@ -41,7 +41,8 @@ const SignIn: React.FC = () => {
         await schema.validate(data, {
           abortEarly: false,
         });
-        signIn({ email: data.Mail, password: data.Password });
+        await signIn({ email: data.Mail, password: data.Password });
+        console.log(data.Mail, data.Password);
       } catch (err) {
         console.log(err);
         const errors = getValidation(err);

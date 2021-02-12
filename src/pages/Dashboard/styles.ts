@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Title = styled.title`
   display: flex;
-  margin-top: 117px;
+  margin: 32px 0;
   /* margin-left: 131px; */
   font: 50px Roboto, sans-serif;
   color: #00145f;
