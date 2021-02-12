@@ -1,12 +1,12 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useContext } from 'react';
 // FormEvent
 import { FiLogIn, FiLock, FiMail } from 'react-icons/fi';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import { FormHandles } from '@unform/core';
 import logo from '../../assets/logo.svg';
-// import ValidationErrors from '../../utils/getValidations';
+import { AuthContext } from '../../context/AuthContext';
 
 import Input from '../../components/input';
 import Button from '../../components/button';
@@ -14,31 +14,41 @@ import getValidation from '../../utils/getValidations';
 // import api from '../../services/api';
 import * as S from './styles';
 
+interface SignCredentials {
+  Mail: string;
+  Password: string;
+}
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  console.log(formRef);
+  const { signIn } = useContext(AuthContext);
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  const handdleSignIn = useCallback(async (data: object) => {
-    try {
-      formRef.current?.setErrors({});
-      console.log(data);
-      const schema = Yup.object().shape({
-        Mail: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um e-mail válido'),
-        Password: Yup.string().min(6, 'Mínimo de 6 digitos'),
-      });
+  const handdleSignIn = useCallback(
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    async (data: SignCredentials) => {
+      try {
+        formRef.current?.setErrors({});
+        console.log(data);
+        const schema = Yup.object().shape({
+          Mail: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail válido'),
+          Password: Yup.string().min(6, 'Mínimo de 6 digitos'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (err) {
-      console.log(err);
-      const errors = getValidation(err);
-      formRef.current?.setErrors(errors);
-    }
-  }, []);
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+        signIn({ email: data.Mail, password: data.Password });
+      } catch (err) {
+        console.log(err);
+        const errors = getValidation(err);
+        formRef.current?.setErrors(errors);
+      }
+    },
+    [signIn],
+  );
 
   return (
     <>
